@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, OnInit, ViewChild} from '@angular/core';
 @Component({
   selector: 'app-video-capture',
   templateUrl: './video-capture.component.html',
-  styleUrls: ['./video-capture.component.css']
+  styleUrls: ['./video-capture.component.scss']
 })
 export class VideoCaptureComponent implements OnInit {
 
@@ -11,5 +10,4 @@ export class VideoCaptureComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

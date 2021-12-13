@@ -1,0 +1,31 @@
+.record-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 14px;
+  .video-capture {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    .video {
+      width: 335px;
+      height: 335px;
+      border-radius: 8px;
+      background-color: #b4b1b1;
+    }
+  }
+  .time-record {
+    flex-basis: 100%;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+  .btn-record {
+    width: 64px;
+    height: 64px;
+    background-color: #C83A27;
+    border-radius: 45px;
+    cursor: pointer;
+    margin-bottom: 38px;
+  }
+}
