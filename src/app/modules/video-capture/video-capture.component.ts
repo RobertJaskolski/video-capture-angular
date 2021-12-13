@@ -44,7 +44,7 @@ export class VideoCaptureComponent implements OnInit {
 
   startRecording() {
     this.recordedBlobs = [];
-    let options: any = { mimeType: 'video/webm;codecs=h264'};
+    let options: any = { mimeType: 'video/webm'};
 
     try {
       this.mediaRecorder = new MediaRecorder(this.stream, options);
@@ -81,7 +81,6 @@ export class VideoCaptureComponent implements OnInit {
         const videoBuffer = new Blob(this.recordedBlobs, {
           type: 'video/webm'
         });
-        console.log(videoBuffer);
         this.downloadUrl = window.URL.createObjectURL(videoBuffer); // you can download with <a> tag
         this.recordVideoElement.src = this.downloadUrl;
       };
