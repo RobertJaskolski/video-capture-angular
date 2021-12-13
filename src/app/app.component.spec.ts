@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'video-capture-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('video-capture-angular');
+    expect(app.title).toEqual('video-capture-capture-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('video-capture-angular app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('video-capture-capture-angular app is running!');
   });
 });

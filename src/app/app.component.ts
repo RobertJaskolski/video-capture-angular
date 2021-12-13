@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'video-capture-angular';
+  title = 'video-capture-capture-angular';
 }
