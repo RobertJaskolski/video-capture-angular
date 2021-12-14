@@ -5,8 +5,10 @@
   <div class="time-record">
     00:00 / 5:00
   </div>
-  <div [ngClass]="{'btn-record': !isRecording, 'btn-stop': isRecording}">
+  <div [ngClass]="{'btn-record': !isRecording, 'btn-stop': isRecording}" (click)="record()">
   </div>
 </div>
-
+<div class="recorded-container">
+  <video class="recorded-video" #recordedVideo autoplay></video>
+</div>
 <img #image>
