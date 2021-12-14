@@ -44,6 +44,7 @@ export class VideoCaptureComponent implements OnInit {
 
   gotStream(stream: any) {
     this.videoElement = this.videoElementRef.nativeElement;
+    this.videoElement.volume = 0;
     this.stream = stream;
     this.videoElement.srcObject = stream;
   }
