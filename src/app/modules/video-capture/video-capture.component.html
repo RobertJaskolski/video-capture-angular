@@ -1,6 +1,6 @@
 <div class="record-container">
   <div class="video-capture">
-    <video class="video" #video autoplay></video>
+    <video class="video" #video autoplay playsinline></video>
   </div>
   <div class="time-record">
     00:00 / 5:00
@@ -8,6 +8,5 @@
   <div [ngClass]="{'btn-record': !isRecording, 'btn-stop': isRecording}">
   </div>
 </div>
-<!--<div class="recorded-container">-->
-<!--  <video class="recorded-video" #recordedVideo autoplay></video>-->
-<!--</div>-->
+
+<img #image>

@@ -1,5 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 declare const MediaRecorder: any;
+
 @Component({
   selector: 'app-video-capture',
   templateUrl: './video-capture.component.html',
@@ -7,11 +9,13 @@ declare const MediaRecorder: any;
 })
 export class VideoCaptureComponent implements OnInit {
   @ViewChild('video') videoElementRef: any;
+  @ViewChild('image') imageRef: any;
   @ViewChild('recordedVideo') recordVideoElementRef: any;
   videoElement: any;
   stream: any;
   isRecording: boolean = false;
   devicesInfo: any;
+  canvas: any;
 
   constructor() {
   }
@@ -35,18 +39,46 @@ export class VideoCaptureComponent implements OnInit {
         track.stop();
       });
     }
+
     const constrants = {
       audio: {deviceId: audioSource.deviceId ? {exact: audioSource.deviceId} : undefined},
       video: {deviceId: videoSource.deviceId ? {exact: videoSource.deviceId} : undefined},
     }
+
     return navigator.mediaDevices.getUserMedia(constrants).then(result => this.gotStream(result)).catch((err) => console.log(err));
   }
 
   gotStream(stream: any) {
     this.videoElement = this.videoElementRef.nativeElement;
-    this.videoElement.volume = 0;
+
     this.stream = stream;
     this.videoElement.srcObject = stream;
+    setInterval(() => {
+      this.snap();
+    }, 1000)
+  }
+
+  snap() {
+    console.log("111");
+    var img = document.querySelector('img') || document.createElement('img');
+    var context;
+    var width = this.videoElement.offsetWidth
+      , height = this.videoElement.offsetHeight;
+
+    if (!this.canvas) {
+      this.canvas = document.createElement('canvas');
+      this.canvas.width = width;
+      this.canvas.height = height;
+    }
+
+    context = this.canvas.getContext('2d');
+    // @ts-ignore
+    context.drawImage(this.videoElement, 0, 0, width, height);
+
+    img.src = this.canvas.toDataURL('image/png');
+    console.log("this.canvas.toDataURL('image/png')", this.canvas.toDataURL('image/png'));
+    // document.body.appendChild(img);
+    this.imageRef.nativeElement.src = this.canvas.toDataURL('image/png');
   }
 
   // record() {
